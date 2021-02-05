@@ -1,4 +1,4 @@
-import nltk , math , json
+import nltk, math, json
 from hazm import *
 from gensim.models import Word2Vec
 
@@ -61,12 +61,12 @@ class PreProcess:
         x = []
 
         for i in range(0, len(self.data)):
-            x.append(prepare(self.data[i]['title']+ ' '+self.data[i]['summary']))
+            x.append(prepare(self.data[i]['title'] + ' ' + self.data[i]['summary']))
 
         for doc in x:
             tf = {}
             for term in doc:
-                if term not in tf :
+                if term not in tf:
                     if term not in self.all_terms:
                         self.all_terms[term] = 1
                     else:
