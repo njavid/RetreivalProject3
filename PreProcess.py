@@ -1,6 +1,7 @@
 import nltk, math, json
 from hazm import *
 from gensim.models import Word2Vec
+import numpy as np
 
 
 def prepare(content):
@@ -77,7 +78,17 @@ class PreProcess:
         x = []
 
         for i in range(0, len(self.data)):
-            x.append(prepare(self.data[i]['title'] + ' ' + self.data[i]['summary']))
+            temp = []
+            doc_tokens = prepare(self.data[i]['title'] + ' ' + self.data[i]['summary'])
+            model = Word2Vec(doc_tokens, min_count=2)
 
-        word2vec = Word2Vec(x, min_count=2)
-        # print(word2vec)
+            for idx, key in enumerate(model.wv.vocab):
+                temp.append(np.array(model.wv[key]))
+
+            y = [0 * len(temp[0])]
+            for vec in temp:
+                y += vec
+
+            x.append(y/len(y))
+
+        return x

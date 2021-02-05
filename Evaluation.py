@@ -1,3 +1,7 @@
+from sklearn.metrics.cluster import adjusted_rand_score
+from sklearn.metrics.cluster import normalized_mutual_info_score
+
+
 class Evaluation:
 
     def purity(self, n, y, label):
@@ -15,3 +19,9 @@ class Evaluation:
             sum += y.count(i) / len(y) * max(dict.values()) / y.count(i)
 
         return sum
+
+    def adjusted_rand_index(self, labels_true, labels_pred):
+        return adjusted_rand_score(labels_true, labels_pred)
+
+    def normalized_mutual_information(self, labels_true, labels_pred):
+        return normalized_mutual_info_score(labels_true, labels_pred)

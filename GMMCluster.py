@@ -1,4 +1,5 @@
 from sklearn import mixture
+import Plot
 
 
 class GMMCluster:
@@ -6,6 +7,9 @@ class GMMCluster:
         self.gmm = mixture.GaussianMixture(n_components=n)
         self.data = data_vectors
 
-    def cluster(self):
+    def cluster(self, type):
         self.gmm.fit(self.data)
-        return self.gmm.predict(self.data)
+        predict = self.gmm.predict(self.data)
+        plot = Plot.Plot()
+        plot.plot(predict, self.data, "GMM Clustering " + type)
+        return predict
