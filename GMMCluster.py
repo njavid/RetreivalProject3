@@ -12,4 +12,5 @@ class GMMCluster:
         predict = self.gmm.predict(self.data)
         plot = Plot.Plot()
         plot.plot(predict, self.data, "GMM Clustering " + type)
+
         return predict

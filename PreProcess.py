@@ -33,6 +33,7 @@ class PreProcess:
         self.all_terms = {}
         self.set_all_terms()
         self.labels = [self.data[i]['tags'][0] for i in range(len(data))]
+        self.links = [self.data[i]['link']for i in range(len(data))]
 
     def vectorize_tf_idf(self):
         vectors = []
