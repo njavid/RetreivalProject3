@@ -11,7 +11,7 @@ class WebCrawler:
         self.chrome_options.add_argument("--window-size=1920x1080")
         self.counter = 0
 
-    def crowl(self, start_url, n):
+    def crawl(self, start_url, n):
         driver = webdriver.Chrome(chrome_options=self.chrome_options, executable_path="chromedriver.exe")
         article_name, article_abstract, article_authors, article_release_date, links = [], [], [], [], []
 

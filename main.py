@@ -1,4 +1,4 @@
-import PreProcess, Kmaens, Evaluation, GMMCluster, HierarchicalCluster, WebCrawler
+import PreProcess, Kmaens, Evaluation, GMMCluster, HierarchicalCluster, WebCrawler, PageRank
 
 if __name__ == '__main__':
     # arr = {1:2,3:4,5:1}
@@ -19,8 +19,12 @@ if __name__ == '__main__':
     # hc = HierarchicalCluster.HierarchicalCluster(data_vectors, 5)
     # print(hc.cluster())
 
-
     # wc = WebCrawler.WebCrawler()
-    # wc.crowl(["https://academic.microsoft.com/paper/2981549002",
+    # wc.crawl(["https://academic.microsoft.com/paper/2981549002",
     #           "https://academic.microsoft.com/paper/3105081694",
     #           "https://academic.microsoft.com/paper/2950893734"], 100)
+
+    # pr = PageRank.PageRank('crawl_output.txt')
+    # print(pr.rank(0.4))
+
+
